@@ -42,7 +42,7 @@ select employee_id "Emp #", last_name "Name", job_id "Job", hire_date "Hire Date
 from employees;
 
 select last_name || job_id
-from employees;
+from employees;--||연산자의 리턴값은 전부 char이다
 
 select last_name || ' is ' || job_id
 from employees;
