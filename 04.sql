@@ -90,7 +90,7 @@ where hire_date = to_date('Sep 21, 2005', 'Mon  dd yy');
 
 select last_name, hire_date
 from employees
-where hire_date = to_date('Sep 21, 2005', 'fxMon  dd yy');
+where hire_date = to_date('Sep 21, 2005', 'fxMon dd yy');
 
 select to_number('1237')
 from dual;
@@ -212,5 +212,8 @@ order by case day
 -- 과제: 2005년 이전에 입사한 사원들에게 100만원 상품권,
 --       2005년 이후에 입사한 사원들에게 10만원 상품권을 지급한다.
 --       사원들의 이름, 입사일, 상품권 금액을 조회하라.
-select last_name, hire_date, to_char(hire_date, 'yyyy') date
-from employees;
+select last_name, hire_date, 
+    case when  hire_date <= '2005/12/31' then '100만원'
+        else '10만원' end gift
+from employees
+order by gift, hire_date;
