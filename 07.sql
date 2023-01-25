@@ -13,7 +13,7 @@ where job_id = (select job_id
 and salary > (select salary
                 from employees
                 where last_name = 'Ernst');
--- 과제: Kohhar 에게 보고하는 사원들의 이름, 월급을 조회하라.
+-- 과제: Kochhar 에게 보고하는 사원들의 이름, 월급을 조회하라.
 select last_name, salary
 from employees
 where manager_id = (select employee_id
