@@ -19,8 +19,8 @@ create or replace view empvu80 as
     
 desc empvu80
 
--- ê³¼ì œ: 50ë²ˆ ë¶€ì„œì›ë“¤ì˜ ì‚¬ë²ˆ, ì´ë¦„ ë¶€ì„œë²ˆí˜¸ë¡œ êµ¬ì„±ëœ DEPT50 view ë¥¼ ë§Œë“¤ì–´ë¼.
---       view êµ¬ì¡°ëŠ” EMPNO, EMPLOYEE, DETNO ì´ë‹¤.
+-- ê³¼ì œ: 50ë²? ë¶??„œ?›?“¤?˜ ?‚¬ë²?, ?´ë¦? ë¶??„œë²ˆí˜¸ë¡? êµ¬ì„±?œ DEPT50 view ë¥? ë§Œë“¤?–´?¼.
+--       view êµ¬ì¡°?Š” EMPNO, EMPLOYEE, DETNO ?´?‹¤.
 
 create or replace view dept50 as
     select employee_id EMPNO, last_name EMPLOYEE, department_id DEPTNO
@@ -59,7 +59,7 @@ create or replace view team50 as
     from teams
     where team_id = 50
     with check option;
---  with check option ì´ ê²€ì‚¬í•˜ëŠ”ê²ƒì€ whereì ˆì´ë‹¤.
+--  with check option ?´ ê²??‚¬?•˜?Š”ê²ƒì? where? ˆ?´?‹¤.
 insert into team50 values(50, 'IT Support');
 select count(*) from teams;
 insert into team50 values(301, 'IT Support');
@@ -90,20 +90,20 @@ where team_id < 5;
 create sequence x_xid_seq
     start with 10
     increment by 5
-    maxvalue 20
-    nocache-- ëŒ€ì‹œì‹œì¼œë†“ì§€ì•ŠëŠ”ë‹¤.
-    nocycle;-- ìˆœí™˜í•˜ì§€ì•ŠëŠ”ë‹¤.
+    maxvalue 20 
+    nocache-- ???‹œ?‹œì¼œë†“ì§??•Š?Š”?‹¤.
+    nocycle;-- ?ˆœ?™˜?•˜ì§??•Š?Š”?‹¤.
     
 select x_xid_seq.nextval from dual;
 
--- ê³¼ì œ: DEPT í…Œì´ë¸”ì˜ DEPARTMENT_ID ì¹¼ëŸ¼ì˜ field value ë¡œ ì“¸ sequence ë¥¼ ë§Œë“¤ì–´ë¼.
---       sequenceëŠ” 400ì´ìƒ, 1000ì´í•˜ë¡œ ìƒì„±í•œë‹¤. 10ì”© ì¦ê°€í•œë‹¤.
+-- ê³¼ì œ: DEPT ?…Œ?´ë¸”ì˜ DEPARTMENT_ID ì¹¼ëŸ¼?˜ field value ë¡? ?“¸ sequence ë¥? ë§Œë“¤?–´?¼.
+--       sequence?Š” 400?´?ƒ, 1000?´?•˜ë¡? ?ƒ?„±?•œ?‹¤. 10?”© ì¦ê??•œ?‹¤.
 
 create sequence dept_deptid_seq
     start with 400
     increment by 10
     maxvalue 1000;
--- ê³¼ì œ: ìœ„ sequenceë¥¼ ì´ìš©í•´ì„œ, DEPT í…Œì´ë¸”ì—ì„œ Education ë¶€ì„œë¥¼ insert í•˜ë¼.
+-- ê³¼ì œ: ?œ„ sequenceë¥? ?´?š©?•´?„œ, DEPT ?…Œ?´ë¸”ì—?„œ Education ë¶??„œë¥? insert ?•˜?¼.
 insert into dept(department_id, department_name)
 values(dept_deptid_seq.nextval, 'Education');
 
@@ -124,7 +124,7 @@ where rowid =  'AAAEAbAAEAAAADNAAe';
 select index_name, index_type, table_owner, table_name
 from user_indexes;
 
--- ê³¼ì œ: DEPT í…Œì´ë¸”ì˜ DEPARTMENT_NAME ì— ëŒ€í•´ indexë¥¼ ë§Œë“¤ì–´ë¼.
+-- ê³¼ì œ: DEPT ?…Œ?´ë¸”ì˜ DEPARTMENT_NAME ?— ???•´ indexë¥? ë§Œë“¤?–´?¼.
 create index detp_detpname_idx
 on dept(department_name);
 
@@ -135,6 +135,6 @@ for departments;
 
 select * from team;
 
--- ê³¼ì œ: EMPLOYEES í…Œì´ë¸”ì— EMPS synonym ì„ ë§Œë“¤ì–´ë¼.
+-- ê³¼ì œ: EMPLOYEES ?…Œ?´ë¸”ì— EMPS synonym ?„ ë§Œë“¤?–´?¼.
 create synonym EMPS
 for employees;
